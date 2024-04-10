@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding:0;
+}
+nav ul{
+    display: flex;
+    text-align: center;
+    font-size: large;
+    justify-content: space-between;
+}
+nav li{
+    list-style: none;
+    display: block;
+    width: 30%;
+    padding:25px ;
+}
+nav li:first-child{
+    background-color: red;
+}
+nav li:nth-child(2){
+    background-color: blue;
+}
+nav li:last-child{
+    background-color: green;
+}
+.journal{
+    background-image: url(https://scsa.ge/wp-content/uploads/2018/08/securityservice1.jpg);
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.banner_inner{
+    text-align: center;
+}
+.banner_inner p{
+    margin: 20px 0;
+}
+.banner_inner a{
+    display: flex;
+    background-color: grey;
+    width: 100px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20%;
+    align-items: center;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto;
+    width: 80%;
+    background-color: rgb(29, 169, 250);
+    border-radius: 10px;
+    border-top-left-radius: 100px;
+    padding: 20px;
+}
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.contact-form button {
+    background-color: #434343;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 10px 30px;
+    margin-top: 20px;
+}
+.contact-form h2 {
+    font-size: 2rem;
+    margin: 20px 0;
+    text-align: center;
+    color: green;
+}
