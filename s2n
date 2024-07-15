@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="s2.css">
+    <title>Work</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <ul>
+                <li>Section 1</li>
+                <li>Section 2</li>
+                <li>Section 3</li>
+            </ul>
+        </nav>
+    </div> 
+    <div class="banner">
+        <img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1621609843730/Be0Bu8QUD.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="banner">
+    </div>
+    <div class="content">
+        <div class="contact">
+            <form id="contactForm">
+                <h2>Contact US</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium rerum amet ipsam ut perferendis reprehenderit officia omnis magni? Debitis quo, veritatis repellat nisi ad doloribus ullam et earum laborum nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe nam est quis necessitatibus sint in, repudiandae ducimus adipisci deleniti tenetur vel. Neque, et! Molestias fugit cumque ab sequi earum similique.</p>
+                <input id="name" type="text" placeholder="Enter Your Name">
+                <input id="email" type="email" placeholder="Enter Your Email">
+                <textarea id="message" name="message" cols="30" rows="10" placeholder="Enter Your Message"></textarea>
+                <button id="ok" type="button" onclick="handleClick()">Submit</button>
+            </form>
+            <div id="extraDivsContainer" class="extra-divs hidden"></div>
+        </div>
+        <div class="image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5smpy4vYtvSBATgfE_tB8EmE-MvRvwA--a0VxIdOFC8xzeP0LMABUsYZ6yGrikYPLsU8&usqp=CAU" alt="image">
+        </div>
+    </div>
+    <script src="./s2.js"></script>
+</body>
+</html>
+///////////////////////////////////////////////////////////////
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    display: flex;
+    text-align: center;
+    font-size: large;
+    justify-content: space-between;  
+}
+
+nav li {
+    list-style: none;
+    display: block;
+    width: 30%;
+    padding: 25px;  
+}
+
+nav li:first-child {
+    background-color: blue;
+}
+
+nav li:nth-child(2) {
+    background-color: red;
+}
+
+nav li:last-child {
+    background-color: green;
+}
+
+.banner img {
+    height: 500px;
+    width: 100%;
+    background-position-x: bottom;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contact {
+    display: block;
+    max-width: 60%;
+    align-items: left;
+}
+
+.contact h2 {  
+    font-size: 2rem;
+    margin: 10px;
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px;
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 60px auto;
+    width: 80%;
+}
+
+.contact input, .contact textarea {
+    width: 80%;
+    margin: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.contact button {
+    width: 150px;
+    height: 50px;
+    background-color: orange;
+    font-size: 20px;
+    border-radius: 30px;
+    margin-bottom: 20px; /* Adjusted to give some space above the extra divs */
+}
+
+.content img {
+    height: 65vh;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+}
+
+.extra-divs {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.extra-div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+/////////////////////////////
+function handleClick() {
+    addLabels();
+    addDivs();
+}
+
+function addLabels() {
+    const form = document.getElementById('contactForm');
+
+    const nameInput = document.getElementById('name');
+    if (!document.getElementById('nameLabel')) {
+        const nameLabel = document.createElement('label');
+        nameLabel.setAttribute('for', 'name');
+        nameLabel.id = 'nameLabel';
+        nameLabel.innerText = 'Name:';
+        form.insertBefore(nameLabel, nameInput);
+    }
+
+    const emailInput = document.getElementById('email');
+    if (!document.getElementById('emailLabel')) {
+        const emailLabel = document.createElement('label');
+        emailLabel.setAttribute('for', 'email');
+        emailLabel.id = 'emailLabel';
+        emailLabel.innerText = 'Email:';
+        form.insertBefore(emailLabel, emailInput);
+    }
+
+    const messageTextarea = document.getElementById('message');
+    if (!document.getElementById('messageLabel')) {
+        const messageLabel = document.createElement('label');
+        messageLabel.setAttribute('for', 'message');
+        messageLabel.id = 'messageLabel';
+        messageLabel.innerText = 'Message:';
+        form.insertBefore(messageLabel, messageTextarea);
+    }
+}
+
+function addDivs() {
+    const container = document.getElementById('extraDivsContainer');
+
+    // Remove the hidden class to make the divs visible
+    container.classList.remove('hidden');
+
+    // Clear any existing divs
+    container.innerHTML = '';
+
+    // Create and append new divs
+    for (let i = 1; i <= 4; i++) {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'extra-div';
+        newDiv.innerText = `Div ${i}`;
+        container.appendChild(newDiv);
+    }
+}
